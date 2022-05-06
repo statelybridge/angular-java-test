@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg bg">
+  <a class="navbar-brand text" href="#">Angular - Java</a>
+  <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon text-white" style="margin-top:30%">Menu</span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text" routerLink="">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text" routerLink="/edit">Edit</a>
+      </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+<div class="container-fluid">
+  <h1 class="display-2 text-center" style="color:darkblue"><strong>Welcome</strong></h1>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h3>Please enter your name and pick the Sectors you are currently involved in.
+      </h3>
+      <div class="form-group" style="margin-top:2%">
+        <label for="exampleInputEmail1"><strong>Enter Name</strong></label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #name>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlSelect1"><strong>Sectors</strong></label>
+        <select class="form-control" id="exampleFormControlSelect1" (change)="category($event)">
+          <option *ngFor="let data of categories" value={{data.id}}>
+            <ng-container *ngIf="data.cat_level == 0">{{data.name}}</ng-container>
+            <ng-container *ngIf="data.cat_level == 1">{{'&nbsp;&nbsp;&nbsp;&nbsp;'+data.name}}</ng-container>
+            <ng-container *ngIf="data.cat_level == 2">{{'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+data.name}}
+            </ng-container>
+            <ng-container *ngIf="data.cat_level == 3">
+              {{' '+data.name}}
+            </ng-container>
+          </option>
+        </select>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="defaultCheck1" (change)="term($event)">
+        <label class="form-check-label" for="defaultCheck1">
+          I Agree to Terms & Conditions
+        </label>
+      </div>
+
+      <div class="row">
+        <button type="button" class="btn btn-success" style="margin-left:1.5%;margin-top: 2%;"
+          (click)="addEmployee(name.value)">Save</button>
+        <button type="button" routerLink="./edit" class="btn btn-primary"
+          style="margin-left:1.5%;margin-top: 2%;">Edit</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#5000ca" fill-opacity="1"
+    d="M0,160L30,144C60,128,120,96,180,74.7C240,53,300,43,360,74.7C420,107,480,181,540,202.7C600,224,660,192,720,176C780,160,840,160,900,133.3C960,107,1020,53,1080,69.3C1140,85,1200,171,1260,176C1320,181,1380,107,1410,69.3L1440,32L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+  </path>
+</svg>

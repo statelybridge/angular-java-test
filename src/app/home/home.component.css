@@ -1,0 +1,9 @@
+.bg{
+  background: rgb(9,9,121);
+background: linear-gradient(90deg, rgba(9,9,121,1) 9%, rgba(10,54,147,1) 89%);
+}
+
+.text{
+  color: #ffffff;
+
+}
